@@ -41,7 +41,8 @@ export const login = async (req,res) => {
       res.json({
          id: userFound._id,
          username: userFound.username,
-         email: userFound.email
+         email: userFound.email,
+         message:'Sesión iniciada con éxito'
       })
    }catch(error){
       res.status(500).json({ message: error.message });
@@ -55,4 +56,5 @@ export const logout = (req, res) => {
       expires: new Date(0)
    });
    return res.sendStatus(200);
+   
 }

@@ -1,15 +1,15 @@
-//Instalamos las dependencias necesarias para levantar el servidor
+// Importamos bibliotecas necesarias
 import express from "express";
 import dotenv from 'dotenv';
-dotenv.config();
-//Morgan nos permite obtener informacion del usuario que realice una peticion
+dotenv.config(); // Configuracion de las variables de entorno
 import morgan from "morgan";
-import authRoutes from "./routes/auth.routes.js";
+import authRoutes from "./routes/auth.routes.js"; // importación de rutas 
 
+//Instanciamos express
 const app = express();
 
-app.use(morgan('combined'));
-app.use(express.json());
+app.use(morgan('combined'));//Usamos morgan para el registro de las solicitudes HTTP
+app.use(express.json());//Habilitamos JSON en el cuerpo de las solicitudes
 
  
 app.use('/api', authRoutes);
