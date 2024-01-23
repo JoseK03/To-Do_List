@@ -5,7 +5,7 @@ dotenv.config(); // Configuracion de las variables de entorno
 import morgan from "morgan";
 import authRoutes from "./routes/auth.routes.js"; // importación de rutas 
 import cookieParser from 'cookie-parser';
-
+import taskRotues from './routes/task.routes.js'
 //Instanciamos express
 const app = express();
 
@@ -15,5 +15,6 @@ app.use(cookieParser())//nos permite agregar un middleware, convertir cookie a j
 
  
 app.use('/api', authRoutes);
+app.use('/api', taskRotues);
 
 export default app;
