@@ -54,7 +54,8 @@ export const login = async (req,res) => {
 export const logout = (req, res) => {
    res.cookie('token', '',{
       expires: new Date(0)
-   });
+   })
+   res.json({message:'Sesion finalizada'});
    return res.sendStatus(200);
    
 }
