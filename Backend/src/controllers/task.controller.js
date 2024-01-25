@@ -23,7 +23,7 @@ export const createTask = async (req,res) => {
     });
 
     const taskSaved = await newTask.save();
-    res.json(taskSaved)
+    res.json({message:'tarea creada con éxito', taskSaved})
 
 };
 export const getTask = async (req,res) => {
@@ -33,7 +33,7 @@ export const getTask = async (req,res) => {
 
 export const deleteTask = async (req,res) => {
     const task = await Task.findByIdAndDelete(req.params.id);
-    (!task) ? res.status(404).json({message:'Task not found'}) : res.json(task);
+    (!task) ? res.status(404).json({message:'Task not found'}) : res.json({message:'Tarea eliminada satisfactoria mente',task});
 };
 export const updateTask = async (req,res) => {
     const task = await Task.findByIdAndUpdate(req.params.id , req.body, {new: true});
